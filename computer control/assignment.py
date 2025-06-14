@@ -53,12 +53,12 @@ for Ts in Ts_list:
 
     # ─── 3. 绘图（与原脚本相同） ─────────────────────────────
     # 3.1 零极点
-    plt.figure(figsize=(6,6))
+    plt.figure(figsize=(8,8))
     for name, sys in systems.items():
         z = np.roots(sys['num'])
         p = np.roots(sys['den'])
-        plt.plot(np.real(z), np.imag(z), 'o', label=f'{name} zeros')
-        plt.plot(np.real(p), np.imag(p), 'x', label=f'{name} poles')
+        plt.plot(np.real(z), np.imag(z), 'o', label=f'{name} zeros', markersize=8)
+        plt.plot(np.real(p), np.imag(p), 'x', label=f'{name} poles', markersize=8)
     plt.title(f'Zeros & Poles (T={Ts}s)')
     plt.xlabel('Real'); plt.ylabel('Imag'); plt.grid(True)
     plt.axis('equal'); plt.legend(); plt.show()
