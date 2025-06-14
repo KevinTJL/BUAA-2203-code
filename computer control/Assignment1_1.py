@@ -14,13 +14,13 @@ for Ts in Ts_list:
     # 3. 离散化
     methods = {
         'ZOH'     : signal.cont2discrete((num_c, den_c), Ts, method='zoh'),
-        'Forward' : signal.cont2discrete((num_c, den_c), Ts, method='forward'),
-        'Backward': signal.cont2discrete((num_c, den_c), Ts, method='backward'),
-        'Matched' : signal.cont2discrete((num_c, den_c), Ts, method='matched'),
+        'Forward' : signal.cont2discrete((num_c, den_c), Ts, method='euler'),
+        'Backward': signal.cont2discrete((num_c, den_c), Ts, method='backward_diff'),
+        'Matched': signal.cont2discrete((num_c, den_c), Ts, method='foh'),
         'Tustin'  : signal.cont2discrete((num_c, den_c), Ts, method='bilinear'),
         'Tustin_PW': signal.cont2discrete((num_c, den_c), Ts,
                                            method='bilinear',
-                                           prewarp_frequency=1.0)
+                                           alpha=1.0)
     }
 
     # 4. 计算连续频率响应
